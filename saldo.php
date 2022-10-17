@@ -13,7 +13,7 @@
         $resultado = ($saldo - $dívidas);
 
         if ($resultado > 0) {
-            echo "Ainda restará dinheiro em sua conta, totalizando $resultado";
+            echo " restará dinheiro em sua conta, totalizando $resultado";
         }
         else if (($resultado) == 0) {
             echo "Após quitar sua dívida, não restará nada em sua conta";
