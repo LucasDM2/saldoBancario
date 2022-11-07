@@ -5,33 +5,108 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dados pessoais.</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+        $("#cpf").mask("000.000.000-00")
+        $("#telefone").mask("+00 (00)00000-0000")
+        $("#cep").mask("00000-000")
+        })
+    </script>
 </head>
 <body>
-    <form action="informacoesPessoais.php" method="post">
-        <h1>Informações do usuário:</h1><br>
-        <br>
-        Nome completo:<br>
-        <input class="input" type="text" value="" name="nome"><BR>
-        <BR>
-        CPF: <br>
-        <input class="input" type="number" value="" name="cpf"><BR>
-        <br>
-        e-mail: <br>
-        <input class="input" type="email" value="" name="email"><br>
-        <br>
-        Telefone: <br>
-        <input class="input" type="number" value="" name="telefone"><br>
-        <br>
-        Endereço residencial: <br>
-        <input class="input" type="text" value="" name="endereço"><br>
-        <br>
-        <input type="submit" value="Enviar informações">
-    </form>
+    <header>
+        <h1>Informações do usuário.</h1>
+    </header>
+    <h3>Olá, precisamos de algumas informações para prosseguir:</h3>
+    <section>
+        <form action="informacoesPessoais.php" action="saldo.php" method="post">
+            <div>
+                Nome:
+                <input autocomplete="off" class="input" placeholder="Digite seu nome." type="text" value="" name="nome" required="required" pattern="[a-zA-Záãâéêíîóôõú\s]+$">
+            </div>
+            <div>
+                Sobrenome:
+                <input autocomplete="off" class="input" placeholder="Digite seu sobrenome." type="text" value="" name="sobrenome" required="required" pattern="[a-zA-Záãâéêíîóôõú\s]+$">
+            </div>
+            <div>
+                CPF: 
+                <input class="input" id="cpf" autocomplete="off" placeholder="Digite seu CPF." type="text" value="" name="cpf" required>
+            </div>
+            <div>
+                e-mail: 
+                <input class="input" placeholder="Digite seu e-mail." type="email" value="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email" required>
+            </div>
+            <div>
+                Telefone: 
+                <input class="input" autocomplete="off" value="+55 ()" name="telefone" required id="telefone">
+            </div>
+            <div>
+                CEP: 
+                <input class="input" placeholder="Digite seu CEP." type="text" value="" id="cep" name="cep" required autocomplete="off">
+            </div> 
+            <div>
+                <input class="botao" type="submit" value="Enviar informações.">
+            </div>
+        </form>
+        
+    </section>
 </body>
 </html>
 
 <style>
+    * {
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
     .input {
+        width: 300px;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background-color: cornflowerblue;
+        color: snow;
+        font-family: Cambria, Arial;
+    }
+
+    section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 80vh;
+    }
+    
+    form {
+        font-family: arial;
+    }
+
+    form input, form textarea {
+        padding: 20px;
+        width: 300px;
+        border: 1px solid cornflowerblue;
+        border-radius: 20px;
+    }
+
+    .botao {
+        background-color: cornflowerblue;
+        color: snow;
         width: 200px;
+        cursor: pointer;
+    }
+
+    form div {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
     }
 </style>
