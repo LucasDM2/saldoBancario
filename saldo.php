@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -10,28 +10,37 @@
     <header>
         <h1>Saldo após quitação das dívidas. <?php $resultado ?></h1>
     </header>
-    <section>
+    <section> -->
     <?php
-        $salario = $_POST["salario"];
-        $divida = $_POST["divida"];
+        $salario = (float) $_POST["salario"];
+        $divida = (float) $_POST["divida"];
         $resultado = ($salario - $divida);
         $banco = $_POST["banco"];
-        $nome = $_POST["nome"];
+
+        // echo "<pre>";
+        // var_dump($_POST);
+        // echo "</pre>";
+        // $nome = $_POST["nome"];
 
         if ($resultado > 0) {
-            echo "Após quitar sua dívida com o $banco, ainda restará dinheiro em sua conta, totalizando R$";
-            echo number_format($resultado,2,",","."), "."; 
+            echo 'a';
+            echo "<script>alert('Após quitar sua dívida com o " . $banco . ", o saldo da sua conta ficará negativo, resultando numa dívida de R$');window.location.href='informacoesPessoais.php';</script>";
+            // echo "Após quitar sua dívida com o $banco, ainda restará dinheiro em sua conta, totalizando R$";
+            // echo number_format($resultado,2,",","."), "."; 
         }
         else if (($resultado) == 0) {
-            echo "Após quitar sua dívida com o $banco, não restará nada em sua conta.";
+            echo 'b';
+            echo "<script>alert('Após quitar sua dívida com o " . $banco . ", o saldo da sua conta ficará negativo, resultando numa dívida de R$')</script>";
+            // echo "Após quitar sua dívida com o $banco, não restará nada em sua conta.";
         }
         else {
-            echo "Após quitar sua dívida com o $banco, o saldo da sua conta ficará negativo, resultando numa dívida de R$";
-            echo number_format($resultado,2,",","."), "."; 
+            // echo 'alert(\'Após quitar sua dívida com o ' . $banco . ', o saldo da sua conta ficará negativo, resultando numa dívida de R$\')';
+            echo "<script>alert(\"Após quitar sua dívida com o , o saldo da sua conta ficará negativo, resultando numa dívida de R$\")</script>";
+            // echo number_format($resultado,2,",","."), "."; 
         }
         
     ?>
-    </section>
+    <!-- </section>
 </body>
 </html>
 
@@ -65,4 +74,4 @@
         color: snow;
     }
 
-</style>
+</style> -->
